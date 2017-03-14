@@ -3,7 +3,7 @@ tcp-5001:
   ports:
     - "5001:5001"
   volumes:
-    - /data/iperf-server/logs:/var/log/iperf-server
+    - /data/iperf-server/logs:/data
   #environment:
     #- ARGS="--format m --print_mss --nodelay"
     #- TCP_WINDOW_SIZE="43K"
@@ -12,7 +12,7 @@ tcp-5002:
   ports:
     - "5002:5001"
   volumes:
-    - /data/iperf-server/logs:/var/log/iperf-server
+    - /data/iperf-server/logs:/data
   #environment:
     #- ARGS="--format m --print_mss --nodelay"
     #- TCP_WINDOW_SIZE="43K"
@@ -21,7 +21,7 @@ tcp-5003:
   ports:
     - "5003:5001"
   volumes:
-    - /data/iperf-server/logs:/var/log/iperf-server
+    - /data/iperf-server/logs:/data
   #environment:
     #- ARGS="--format m --print_mss --nodelay"
     #- TCP_WINDOW_SIZE="43K"
@@ -30,7 +30,7 @@ tcp-5004:
   ports:
     - "5004:5001"
   volumes:
-    - /data/iperf-server/logs:/var/log/iperf-server
+    - /data/iperf-server/logs:/data
   #environment:
     #- ARGS="--format m --print_mss --nodelay"
     #- TCP_WINDOW_SIZE="43K"
@@ -39,7 +39,7 @@ tcp-5005:
   ports:
     - "5005:5001"
   volumes:
-    - /data/iperf-server/logs:/var/log/iperf-server
+    - /data/iperf-server/logs:/data
   #environment:
     #- ARGS="--format m --print_mss --nodelay"
     #- TCP_WINDOW_SIZE="43K"
@@ -48,7 +48,7 @@ udp-5001:
   ports:
     - "5001:5001/udp"
   volumes:
-    - /data/iperf-server/logs:/var/log/iperf-server
+    - /data/iperf-server/logs:/data
   environment:
     - ARGS=-u
     #- ARGS="--format m --print_mss --nodelay"
@@ -58,7 +58,7 @@ udp-5002:
   ports:
     - "5002:5001/udp"
   volumes:
-    - /data/iperf-server/logs:/var/log/iperf-server
+    - /data/iperf-server/logs:/data
   environment:
     - ARGS=-u
     #- ARGS="--format m --print_mss --nodelay"
@@ -68,7 +68,7 @@ udp-5003:
   ports:
     - "5003:5001/udp"
   volumes:
-    - /data/iperf-server/logs:/var/log/iperf-server
+    - /data/iperf-server/logs:/data
   environment:
     - ARGS=-u
     #- ARGS="--format m --print_mss --nodelay"
@@ -78,7 +78,7 @@ udp-5004:
   ports:
     - "5004:5001/udp"
   volumes:
-    - /data/iperf-server/logs:/var/log/iperf-server
+    - /data/iperf-server/logs:/data
   environment:
     - ARGS=-u
     #- ARGS="--format m --print_mss --nodelay"
@@ -88,7 +88,7 @@ udp-5005:
   ports:
     - "5005:5001/udp"
   volumes:
-    - /data/iperf-server/logs:/var/log/iperf-server
+    - /data/iperf-server/logs:/data
   environment:
     - ARGS=-u
     #- TCP_WINDOW_SIZE="43K"
