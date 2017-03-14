@@ -124,7 +124,7 @@ udp-5005:
 
 ## Log files
 
-By default, an iperf server will log to standard output. If you need to, you can mount directory against /var/log/iperf-server and set the environment variable LOGFILE to the name of the file you'd like the container to use. ie LOGFILE="tcp-5001.log"
+By default, an iperf server will log to standard output. If you need to, you can mount directory against /var/log/iperf-server and add "-o /var/log/iperf-server/iperf.log" to the environment variable ARGS.
 
 # Environment Variables
 
@@ -139,5 +139,3 @@ According to iperf --help, you can also set every single option using environmen
 # The End
 
 If you have any comments, suggestions etc. Let me know.
-
-
