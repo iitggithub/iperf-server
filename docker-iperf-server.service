@@ -1,0 +1,17 @@
+[Unit]
+Description=Iperf based speed test server
+After=docker.service
+
+[Service]
+Conflicts=shutdown.target
+StartLimitInterval=0
+Restart=always
+TimeoutStartSec=0
+Restart=on-failure
+WorkingDirectory=/data/iperf-server
+ExecStartPre=-/usr/local/bin/docker-compose stop
+ExecStart=/usr/local/bin/docker-compose up
+ExecStop=-/usr/local/bin/docker-compose stop
+
+[Install]
+WantedBy=multi-user.target
