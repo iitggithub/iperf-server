@@ -13,10 +13,10 @@ There's two ways to get up and running, the easy way and the hard way.
 
 ## The Hard Way (Standalone)
 
-Fire up a single iperf server.
+Fire up a single iperf server using the default iperf settings.
 
 ```
-docker run -d --name iperf-server_tcp_5001 -p 53:53 -p udp/53:53 -p 953:953 -v /data/bind/custom:/var/named/chroot/custom -v /data/bind/master:/var/named/chroot/master -v /data/bind/aide:/var/lib/aide iitgdocker/bind:latest
+docker run -d --name iperf-server_tcp_5001 -v /data/iperf-server/logs:/var/log/iperf-server iitgdocker/iperf-server:latest
 ```
 
 ## The Easy Way (Docker Compose)
