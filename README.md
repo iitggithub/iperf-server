@@ -6,6 +6,7 @@ iperf Version | Git branch | Tag name
 --------------| ---------- |---------
 2.0.9         | master     | latest
 2.0.9         | 2.0.9      | 2.0.9
+3.1.3         | 3.1.3      | 3.1.3
 
 # Getting Started
 
