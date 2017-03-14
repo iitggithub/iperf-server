@@ -17,7 +17,7 @@ There's two ways to get up and running, the easy way and the hard way.
 Fire up a single iperf server using the default iperf settings.
 
 ```
-docker run -d --name iperf-server_tcp_5001 -v /data/iperf-server/logs:/var/log/iperf-server iitgdocker/iperf-server:latest
+docker run -d --name iperf-server_tcp_5001 -v /data/iperf-server/logs:/data iitgdocker/iperf-server:latest
 ```
 
 ## The Easy Way (Docker Compose)
@@ -30,7 +30,7 @@ tcp-5001:
   ports:
     - "5001:5001"
   volumes:
-    - /data/iperf-server/logs:/var/log/iperf-server
+    - /data/iperf-server/logs:/data
   #environment:
     #- ARGS="--format m --print_mss --nodelay"
     #- TCP_WINDOW_SIZE="43K"
@@ -39,7 +39,7 @@ tcp-5002:
   ports:
     - "5002:5001"
   volumes:
-    - /data/iperf-server/logs:/var/log/iperf-server
+    - /data/iperf-server/logs:/data
   #environment:
     #- ARGS="--format m --print_mss --nodelay"
     #- TCP_WINDOW_SIZE="43K"
@@ -48,7 +48,7 @@ tcp-5003:
   ports:
     - "5003:5001"
   volumes:
-    - /data/iperf-server/logs:/var/log/iperf-server
+    - /data/iperf-server/logs:/data
   #environment:
     #- ARGS="--format m --print_mss --nodelay"
     #- TCP_WINDOW_SIZE="43K"
@@ -57,7 +57,7 @@ tcp-5004:
   ports:
     - "5004:5001"
   volumes:
-    - /data/iperf-server/logs:/var/log/iperf-server
+    - /data/iperf-server/logs:/data
   #environment:
     #- ARGS="--format m --print_mss --nodelay"
     #- TCP_WINDOW_SIZE="43K"
@@ -66,7 +66,7 @@ tcp-5005:
   ports:
     - "5005:5001"
   volumes:
-    - /data/iperf-server/logs:/var/log/iperf-server
+    - /data/iperf-server/logs:/data
   #environment:
     #- ARGS="--format m --print_mss --nodelay"
     #- TCP_WINDOW_SIZE="43K"
@@ -75,7 +75,7 @@ udp-5001:
   ports:
     - "5001:5001/udp"
   volumes:
-    - /data/iperf-server/logs:/var/log/iperf-server
+    - /data/iperf-server/logs:/data
   environment:
     - ARGS=-u
     #- ARGS="--format m --print_mss --nodelay"
@@ -85,7 +85,7 @@ udp-5002:
   ports:
     - "5002:5001/udp"
   volumes:
-    - /data/iperf-server/logs:/var/log/iperf-server
+    - /data/iperf-server/logs:/data
   environment:
     - ARGS=-u
     #- ARGS="--format m --print_mss --nodelay"
@@ -95,7 +95,7 @@ udp-5003:
   ports:
     - "5003:5001/udp"
   volumes:
-    - /data/iperf-server/logs:/var/log/iperf-server
+    - /data/iperf-server/logs:/data
   environment:
     - ARGS=-u
     #- ARGS="--format m --print_mss --nodelay"
@@ -105,7 +105,7 @@ udp-5004:
   ports:
     - "5004:5001/udp"
   volumes:
-    - /data/iperf-server/logs:/var/log/iperf-server
+    - /data/iperf-server/logs:/data
   environment:
     - ARGS=-u
     #- ARGS="--format m --print_mss --nodelay"
@@ -115,7 +115,7 @@ udp-5005:
   ports:
     - "5005:5001/udp"
   volumes:
-    - /data/iperf-server/logs:/var/log/iperf-server
+    - /data/iperf-server/logs:/data
   environment:
     - ARGS=-u
     #- TCP_WINDOW_SIZE="43K"
@@ -125,7 +125,7 @@ udp-5005:
 
 ## Log files
 
-By default, an iperf server will log to standard output. If you need to, you can mount directory against /var/log/iperf-server and add "-o /var/log/iperf-server/iperf.log" to the environment variable ARGS.
+By default, an iperf server will log to standard output. If you need to, you can mount directory against /data and add "-o /data/iperf.log" to the environment variable ARGS.
 
 # Environment Variables
 
