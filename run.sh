@@ -1,6 +1,14 @@
 #! /bin/sh -e
 
+# Force default type to tcp
 TYPE="tcp"
+
+# LOGFILE is defined. redirect all output to LOGFILE.
+if [ -n "${LOGFILE}" ]
+  then
+  echo "Setting LOGFILE to ${LOGFILE}..."
+  LOGFILE=">>${LOGFILE} 2>&1"
+fi
 
 # Starts the iperf server using an environment variable containing
 # command line arguments to be passed to the server.
@@ -20,11 +28,11 @@ if [ -n "${ARGS}" ]
   done
   if [ ${TYPE} == "udp" ]
     then
-    echo "Running iperf with args: ${CMDARGS}"
-    /usr/bin/iperf ${CMDARGS} && exit $?
+    echo "Running UDP iperf server with args: ${CMDARGS}"
+    /usr/bin/iperf ${CMDARGS} ${LOGFILE} && exit $?
     else
-    echo "Running iperf with args: -s${CMDARGS}"
-    /usr/bin/iperf -s ${CMDARGS} && exit $?
+    echo "Running TCP iperf server with args: -s${CMDARGS}"
+    /usr/bin/iperf -s ${CMDARGS} ${LOGFILE} && exit $?
   fi
 fi
 

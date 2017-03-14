@@ -1,5 +1,3 @@
-# iperf-server
-
 A docker container running an iperf server. You can use this to quickly and easily setup iperf servers around your organisation.
 
 # Supported Versions
