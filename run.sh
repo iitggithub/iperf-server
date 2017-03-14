@@ -6,19 +6,27 @@ TYPE="tcp"
 # command line arguments to be passed to the server.
 if [ -n "${ARGS}" ]
   then
-#  for i in ${ARGS}
-#    do
-#    case ${i} in
-#      "-u":
-#      TYPE="udp"
-#      ;;
-#      /5[0-9]{3}/:
-#        PORT="${i}"
-#      ;;
-#    esac
-#  done
-  /usr/bin/iperf -s ${ARGS}
+  for i in ${ARGS}
+    do
+    case ${i} in
+      "-u")
+      echo "setting udp listener..."
+      TYPE="udp"
+      CMDARGS="-u -s ${CMDARGS}"
+      continue
+      ;;
+    esac
+    CMDARGS="${CMDARGS} ${i}"
+  done
+  if [ ${TYPE} == "udp" ]
+    then
+    echo "Running iperf with args: ${CMDARGS}"
+    /usr/bin/iperf ${CMDARGS} && exit $?
+    else
+    echo "Running iperf with args: -s${CMDARGS}"
+    /usr/bin/iperf -s ${CMDARGS} && exit $?
+  fi
 fi
 
 # By default this will start an TCP based iperf server running on port 5001
-/usr/bin/iperf -s
+/usr/bin/iperf -s && exit $?
