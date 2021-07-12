@@ -4,9 +4,11 @@ A docker container running an iperf server. You can use this to quickly and easi
 
 iperf Version | Git branch | Tag name
 --------------| ---------- |---------
-2.0.9         | master     | latest
+2.0.13        | master     | latest
 2.0.9         | 2.0.9      | 2.0.9
+2.0.13        | 2.0.13     | 2.0.13
 3.1.3         | 3.1.3      | 3.1.3
+3.1.7         | 3.1.7      | 3.1.7
 
 # Getting Started
 
