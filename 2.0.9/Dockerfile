@@ -6,7 +6,7 @@ MAINTAINER "The Ignorant IT Guy" <iitg@gmail.com>
 RUN mkdir -p /data
 
 RUN apk update \
-  && apk add iperf \
+  && apk add iperf=2.0.9-r0 \
   && rm -rf /var/cache/apk/*
 
 # Expose the two testing ports
