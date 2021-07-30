@@ -3,7 +3,7 @@
 # Force default type to tcp
 TYPE="tcp"
 
-# Starts the iperf server using an environment variable containing
+# Starts the iperf3 server using an environment variable containing
 # command line arguments to be passed to the server.
 if [ -n "${ARGS}" ]
   then
@@ -21,13 +21,13 @@ if [ -n "${ARGS}" ]
   done
   if [ ${TYPE} == "udp" ]
     then
-    echo "Running UDP iperf server with args: ${CMDARGS}"
-    /usr/bin/iperf ${CMDARGS} && exit $?
+    echo "Running UDP iperf3 server with args: ${CMDARGS}"
+    /usr/bin/iperf3 ${CMDARGS} && exit $?
     else
-    echo "Running TCP iperf server with args: -s${CMDARGS}"
-    /usr/bin/iperf -s ${CMDARGS} && exit $?
+    echo "Running TCP iperf3 server with args: -s${CMDARGS}"
+    /usr/bin/iperf3 -s ${CMDARGS} && exit $?
   fi
 fi
 
-# By default this will start an TCP based iperf server running on port 5001
-/usr/bin/iperf -s && exit $?
+# By default this will start an TCP based iperf3 server running on port 5001
+/usr/bin/iperf3 -s && exit $?
