@@ -1,4 +1,4 @@
-tcp-5201:
+5201:
   image: iitgdocker/iperf-server:3.10.1
   ports:
     - "5201:5201"
@@ -7,7 +7,7 @@ tcp-5201:
   #environment:
     #- ARGS="--format m --print_mss --nodelay"
     #- TCP_WINDOW_SIZE="43K"
-tcp-5202:
+5202:
   image: iitgdocker/iperf-server:3.10.1
   ports:
     - "5202:5201"
@@ -16,7 +16,7 @@ tcp-5202:
   #environment:
     #- ARGS="--format m --print_mss --nodelay"
     #- TCP_WINDOW_SIZE="43K"
-tcp-5203:
+5203:
   image: iitgdocker/iperf-server:3.10.1
   ports:
     - "5203:5201"
@@ -25,7 +25,7 @@ tcp-5203:
   #environment:
     #- ARGS="--format m --print_mss --nodelay"
     #- TCP_WINDOW_SIZE="43K"
-tcp-5204:
+5204:
   image: iitgdocker/iperf-server:3.10.1
   ports:
     - "5204:5201"
@@ -34,7 +34,7 @@ tcp-5204:
   #environment:
     #- ARGS="--format m --print_mss --nodelay"
     #- TCP_WINDOW_SIZE="43K"
-tcp-5205:
+5205:
   image: iitgdocker/iperf-server:3.10.1
   ports:
     - "5205:5201"
@@ -42,53 +42,4 @@ tcp-5205:
     - /data/iperf-server/logs:/data
   #environment:
     #- ARGS="--format m --print_mss --nodelay"
-    #- TCP_WINDOW_SIZE="43K"
-udp-5201:
-  image: iitgdocker/iperf-server:3.10.1
-  ports:
-    - "5201:5201/udp"
-  volumes:
-    - /data/iperf-server/logs:/data
-  environment:
-    - ARGS=-u
-    #- ARGS="--format m --print_mss --nodelay"
-    #- TCP_WINDOW_SIZE="43K"
-udp-5202:
-  image: iitgdocker/iperf-server:3.10.1
-  ports:
-    - "5202:5201/udp"
-  volumes:
-    - /data/iperf-server/logs:/data
-  environment:
-    - ARGS=-u
-    #- ARGS="--format m --print_mss --nodelay"
-    #- TCP_WINDOW_SIZE="43K"
-udp-5203:
-  image: iitgdocker/iperf-server:3.10.1
-  ports:
-    - "5203:5201/udp"
-  volumes:
-    - /data/iperf-server/logs:/data
-  environment:
-    - ARGS=-u
-    #- ARGS="--format m --print_mss --nodelay"
-    #- TCP_WINDOW_SIZE="43K"
-udp-5204:
-  image: iitgdocker/iperf-server:3.10.1
-  ports:
-    - "5204:5201/udp"
-  volumes:
-    - /data/iperf-server/logs:/data
-  environment:
-    - ARGS=-u
-    #- ARGS="--format m --print_mss --nodelay"
-    #- TCP_WINDOW_SIZE="43K"
-udp-5205:
-  image: iitgdocker/iperf-server:3.10.1
-  ports:
-    - "5205:5201/udp"
-  volumes:
-    - /data/iperf-server/logs:/data
-  environment:
-    - ARGS=-u
     #- TCP_WINDOW_SIZE="43K"
