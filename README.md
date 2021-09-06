@@ -12,9 +12,11 @@ iperf Version | Git branch | Tag name
 
 # Getting Started
 
+iperf-server is actually broken up into an iperf2-based server, and an iperf3-based server.
+
 There's two ways to get up and running, the easy way and the hard way.
 
-## The Hard Way (Standalone)
+## The Hard Way (Standalone) for iperf2
 
 Fire up a single iperf server using the default iperf settings.
 
@@ -22,106 +24,11 @@ Fire up a single iperf server using the default iperf settings.
 docker run -d --name iperf-server_tcp_5001 -v /data/iperf-server/logs:/data iitgdocker/iperf-server:latest
 ```
 
-## The Easy Way (Docker Compose)
+## The Easy Way (Docker Compose) for iperf2
 
-The github repo contains a docker-compose.yml you can use as a base. The docker-compose.yml is compatible with docker-compose 1.5.2+. Below is an example but you can always find the latest version on github.
+The github repo contains a docker-compose.yml you can use as a base. The docker-compose.yml is compatible with docker-compose 1.5.2+.
 
-```
-tcp-5001:
-  image: iitgdocker/iperf-server:latest
-  ports:
-    - "5001:5001"
-  volumes:
-    - /data/iperf-server/logs:/data
-  #environment:
-    #- ARGS="--format m --print_mss --nodelay"
-    #- TCP_WINDOW_SIZE="43K"
-tcp-5002:
-  image: iitgdocker/iperf-server:latest
-  ports:
-    - "5002:5001"
-  volumes:
-    - /data/iperf-server/logs:/data
-  #environment:
-    #- ARGS="--format m --print_mss --nodelay"
-    #- TCP_WINDOW_SIZE="43K"
-tcp-5003:
-  image: iitgdocker/iperf-server:latest
-  ports:
-    - "5003:5001"
-  volumes:
-    - /data/iperf-server/logs:/data
-  #environment:
-    #- ARGS="--format m --print_mss --nodelay"
-    #- TCP_WINDOW_SIZE="43K"
-tcp-5004:
-  image: iitgdocker/iperf-server:latest
-  ports:
-    - "5004:5001"
-  volumes:
-    - /data/iperf-server/logs:/data
-  #environment:
-    #- ARGS="--format m --print_mss --nodelay"
-    #- TCP_WINDOW_SIZE="43K"
-tcp-5005:
-  image: iitgdocker/iperf-server:latest
-  ports:
-    - "5005:5001"
-  volumes:
-    - /data/iperf-server/logs:/data
-  #environment:
-    #- ARGS="--format m --print_mss --nodelay"
-    #- TCP_WINDOW_SIZE="43K"
-udp-5001:
-  image: iitgdocker/iperf-server:latest
-  ports:
-    - "5001:5001/udp"
-  volumes:
-    - /data/iperf-server/logs:/data
-  environment:
-    - ARGS=-u
-    #- ARGS="--format m --print_mss --nodelay"
-    #- TCP_WINDOW_SIZE="43K"
-udp-5002:
-  image: iitgdocker/iperf-server:latest
-  ports:
-    - "5002:5001/udp"
-  volumes:
-    - /data/iperf-server/logs:/data
-  environment:
-    - ARGS=-u
-    #- ARGS="--format m --print_mss --nodelay"
-    #- TCP_WINDOW_SIZE="43K"
-udp-5003:
-  image: iitgdocker/iperf-server:latest
-  ports:
-    - "5003:5001/udp"
-  volumes:
-    - /data/iperf-server/logs:/data
-  environment:
-    - ARGS=-u
-    #- ARGS="--format m --print_mss --nodelay"
-    #- TCP_WINDOW_SIZE="43K"
-udp-5004:
-  image: iitgdocker/iperf-server:latest
-  ports:
-    - "5004:5001/udp"
-  volumes:
-    - /data/iperf-server/logs:/data
-  environment:
-    - ARGS=-u
-    #- ARGS="--format m --print_mss --nodelay"
-    #- TCP_WINDOW_SIZE="43K"
-udp-5005:
-  image: iitgdocker/iperf-server:latest
-  ports:
-    - "5005:5001/udp"
-  volumes:
-    - /data/iperf-server/logs:/data
-  environment:
-    - ARGS=-u
-    #- TCP_WINDOW_SIZE="43K"
-```
+For iperf2 (latest), you can use docker-compose-iperf2.yml, and for iperf3 you can use docker-compose-iperf3.yml. These files are provided as a base to get you started so you may need to modify them to suit your specific use-case.
 
 # Volumes
 

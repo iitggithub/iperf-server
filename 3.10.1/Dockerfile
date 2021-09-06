@@ -10,7 +10,7 @@ RUN apk update \
   && rm -rf /var/cache/apk/*
 
 # Expose the two testing ports
-EXPOSE 5001/udp 5001/tcp
+EXPOSE 5201/udp 5201/tcp
 
 VOLUME ["/data"]
 
