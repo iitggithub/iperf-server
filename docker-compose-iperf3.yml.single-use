@@ -1,4 +1,0 @@
-x:
-  image: iitgdocker/iperf-server:3.10.1
-  ports:
-    - "5201:5201/tcp"
