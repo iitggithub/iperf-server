@@ -25,16 +25,10 @@ iperf Version   | Git Tag    | Docker Tag
 
 iperf-server is actually iperf (version 2) and iperf3 (version 3) all rolled into one repository.
 
-The easiest way to get started is to just run a docker container. The following will start an iperf3 server using the latest available version of Iperf3 running on TCP port 5201. A unique name is used to differentiate iperf servers from one another.
+The easiest way to get started is to just run a docker container. The following will start an iperf3 server using the latest available version of Iperf3. Iperf3 servers by default will listen on TCP port 5201 and UDP port 5201. A unique name is used to differentiate iperf servers from one another.
 
 ```
-docker run -d --restart=always --name iperf-server_tcp_5201 -p 5201:5201  iitgdocker/iperf-server:latest
-```
-
-You can also setup a UDP iperf server as well. This will involve using the ARGS environment variable to pass the '-u' parameter. You can also use the ARGS environment variable to pass along any other parameters as well.
-
-```
-docker run -d --restart=always --name iperf-server_udp_5201 -p 5201/udp:5201/udp -e ARGS='-u'  iitgdocker/iperf-server:latest
+docker run -d --restart=always --name iperf-server_5201 -p 5201:5201 -p 5201/udp:5201/udp  iitgdocker/iperf-server:latest
 ```
 
 # Iperf Parameters
@@ -54,8 +48,6 @@ Variable                 | Default Value (docker-compose) | Description
 ------------------------ | ------------------------------ |------------
 ARGS                     | unset                          | Arguments to be passed to the iperf command.
 TCP_WINDOW_SIZE          | unset                          | iperf can use this to set the TCP window size. You can also do this using ARGS as well
-
-According to iperf documentation, you can also set every single option using environment variables. ie IPERF_<long option name>, such as IPERF_BANDWIDTH. I prefer using ARGS personally.
 
 # The End
 
