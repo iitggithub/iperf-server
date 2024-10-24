@@ -1,0 +1,24 @@
+FROM alpine:3.17
+
+# Maintain consistency and ensure container metadata is updated
+LABEL maintainer="IITG <iitggithub@gmail.com>"
+
+# Make placeholder directories for the end user to mount against and install necessary packages
+RUN set -eux; \
+    mkdir -p /data; \
+    apk update; \
+    apk add --no-cache iperf=2.1.8-r0; \
+    rm -rf /var/cache/apk/*
+
+# Expose the two testing ports for both TCP and UDP traffic
+EXPOSE 5201/tcp 5201/udp
+
+# Define a volume for persistent data storage
+VOLUME ["/data"]
+
+# Copy the script and set appropriate permissions
+COPY ../scripts/run.sh /run.sh
+RUN chmod +x /run.sh
+
+# Use ENTRYPOINT to ensure the script is the default process
+ENTRYPOINT ["/run.sh"]
