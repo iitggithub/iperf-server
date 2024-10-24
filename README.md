@@ -1,8 +1,8 @@
-A docker container running an iperf server. You can use this to quickly and easily setup iperf servers around your organisation without having to install things... except docker.
+An Alpine-based docker container which runs an iperf server. You can use this to quickly and easily setup iperf servers around your organisation and perform network performance testing without having to install anything... except [docker](https://docs.docker.com/engine/install/).
 
 # Supported Versions
 
-All versions have been build with multi-architectural support enabled (amd64, arm64, arm/v7).
+All versions have been built with multi-architectural support enabled (amd64, arm64, arm/v7).
 
 iperf Version   | Git Tag    | Docker Tag
 --------------  | ---------- | --------- 
@@ -41,7 +41,7 @@ For more information on what parameters are supported by iperf or iperf3, it's b
 
 ## Log files
 
-By default, an iperf server will log to standard output. If you need to, you can mount directory against /data and add "-o /data/iperf.log" to the environment variable ARGS.
+By default, an iperf server will log to standard output. If you need to you can mount directory against /data and add "-o /data/iperf.log" to the environment variable ARGS.
 
 # Environment Variables
 
