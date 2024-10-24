@@ -30,7 +30,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -51,7 +51,7 @@ jobs:
 
       - name: Build and push Docker image for each platform
         run: |
-          set -e
+          set -xe
           # Extract the version number from the Dockerfile path
           if [ "${{ matrix.version }}" = *"latest"* ]; then
               VERSION="latest"
