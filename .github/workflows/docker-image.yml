@@ -60,6 +60,14 @@ jobs:
           fi
           docker buildx build -f ${{ matrix.version }} --platform linux/amd64,linux/arm/v7,linux/arm64 -t iitgdocker/iperf-server:${VERSION} --push .
 
+      - name: push README to Dockerhub
+        uses: peter-evans/dockerhub-description@v4
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          short-description: An iperf server that runs in a docker container
+          repository: iitgdocker/iperf-server
+
         env:
           DOCKER_CLI_EXPERIMENTAL: enabled
           DOCKER_BUILDKIT: 1
