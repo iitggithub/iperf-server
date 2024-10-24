@@ -2,6 +2,8 @@ A docker container running an iperf server. You can use this to quickly and easi
 
 # Supported Versions
 
+All versions have been build with multi-architectural support enabled (amd64, arm64, arm/v7).
+
 iperf Version   | Git Tag    | Docker Tag
 --------------  | ---------- | --------- 
 3.17.1-r0       | master     | latest    
@@ -25,10 +27,10 @@ iperf Version   | Git Tag    | Docker Tag
 
 iperf-server is actually iperf (version 2) and iperf3 (version 3) all rolled into one repository.
 
-The easiest way to get started is to just run a docker container. The following will start an iperf3 server using the latest available version of Iperf3. Iperf3 servers by default will listen on TCP port 5201 and UDP port 5201. A unique name is used to differentiate iperf servers from one another.
+The easiest way to get started is to just run a docker container. The following will start an iperf3 server using the latest available version of Iperf3. Iperf3 servers by default will listen on TCP port 5201 but can respond to both TCP and UDP tests from iperf clients. A unique name is used to differentiate iperf servers from one another.
 
 ```
-docker run -d --restart=always --name iperf-server_5201 -p 5201:5201 -p 5201/udp:5201/udp  iitgdocker/iperf-server:latest
+docker run -d --restart=always --name iperf-server_5201 -p 5201:5201 -p 5201:5201/udp  iitgdocker/iperf-server:latest
 ```
 
 # Iperf Parameters
